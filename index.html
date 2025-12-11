@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helena - Sua Secretária Virtual | A IA para Lash Designers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsividade.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-container">
+        <header class="content-wrapper">
+            <p class="tagline">
+                <span aria-hidden="true" class="sparkle-icon">✨</span> Primeira ferramenta focada em lash designers no
+                Brasil
+            </p>
+
+            <h1 class="main-title">
+                Conheça a <span class="highlight-text">Helena</span>, sua secretária virtual
+            </h1>
+
+            <p class="description">
+                Helena é a primeira secretária com IA pensada especificamente para lash designers. Ela cuida de tudo:
+                registra clientes, gera pagamentos, emite notas fiscais e envia lembretes. Tudo automático.
+            </p>
+
+            <div class="actions">
+                <button class="cta-button" role="button" onclick="openModal()">
+                    Testar Gratuitamente
+                </button>
+                <div class="availability">
+                    <span aria-hidden="true" class="sparkle-icon">🚀</span> Em breve disponível
+                </div>
+            </div>
+
+            <section aria-labelledby="waitlist-heading" class="waitlist-section">
+                <h2 id="waitlist-heading" class="waitlist-text">
+                    Junte-se à lista de espera
+                </h2>
+                <div class="waitlist-users">
+                    <div class="user-avatars" role="img" aria-label="+50 profissionais que já estão na lista de espera">
+                        <img src="imgs/lash1.jpg" alt="Foto de Perfil de Profissional 1" class="avatar">
+                        <img src="imgs/lash2.jpg" alt="Foto de Perfil de Profissional 2" class="avatar">
+                        <img src="imgs/lash3.jpg" alt="Foto de Perfil de Profissional 3" class="avatar">
+                        <img src="imgs/lash4.jpg" alt="Foto de Perfil de Profissional 4" class="avatar">
+                    </div>
+                    <p class="waiting-count">
+                        <span class="count-number">+50</span> profissionais esperando
+                    </p>
+                </div>
+            </section>
+        </header>
+
+        <main class="content-wrapper">
+
+            <section class="helena-presentation" aria-labelledby="helena-intro-title">
+                <figure>
+                    <img src="imgs/helena.png" alt="Ilustração da Helena, sua secretária virtual."
+                        class="helena-avatar">
+                </figure>
+
+                <div class="helena-dialog-box">
+                    <h2 id="helena-intro-title" class="dialog-title">
+                        Olá! Eu sou a Helena <span aria-hidden="true" class="hand-wave">👋</span>
+                    </h2>
+                    <p class="dialog-intro">
+                        Sou sua <span class="empashis-intro">secretária virtual</span> especializada em lash designers!
+                        <br>
+                        Cuido de toda a parte chata do seu trabalho:
+                    </p>
+
+                    <ul class="dialog-list">
+                        <li class="dialog-item">
+                            <span aria-hidden="true" class="check-icon">✓</span> Registro automático de clientes
+                        </li>
+                        <li class="dialog-item">
+                            <span aria-hidden="true" class="check-icon">✓</span> Geração de links de pagamento
+                        </li>
+                        <li class="dialog-item">
+                            <span aria-hidden="true" class="check-icon">✓</span> Emissão de notas fiscais
+                        </li>
+                        <li class="dialog-item">
+                            <span aria-hidden="true" class="check-icon">✓</span> Lembretes automáticos para suas
+                            clientes
+                        </li>
+                    </ul>
+
+                    <blockquote class="dialog-quote">
+                        "Enquanto você cuida da arte, eu cuido da organização!"
+                    </blockquote>
+                </div>
+            </section>
+
+            <section class="benefits-section" aria-labelledby="benefits-heading">
+                <h2 id="benefits-heading" class="benefits-title">
+                    Tudo que você precisa, <span class="highlight-auto">automaticamente</span>
+                </h2>
+                <p class="benefits-subtitle">
+                    Deixe a tecnologia cuidar da burocracia enquanto você foca em fazer suas
+                    clientes ficarem ainda mais lindas
+                </p>
+
+                <div class="benefits-grid">
+                    <article class="benefit-card">
+                        <div class="icon-container pink-icon">
+                            <span aria-hidden="true" class="icon-class">👤</span>
+                        </div>
+                        <h3 class="card-title">Registro Automático</h3>
+                        <p class="card-description">
+                            Seus clientes são registrados automaticamente no sistema
+                            após cada atendimento
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="icon-container yellow-icon">
+                            <span aria-hidden="true" class="icon-class">💳</span>
+                        </div>
+                        <h3 class="card-title">Link de Pagamento</h3>
+                        <p class="card-description">
+                            Com um clique, gere e envie links de pagamento
+                            automaticamente para suas clientes
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="icon-container red-icon">
+                            <span aria-hidden="true" class="icon-class">📄</span>
+                        </div>
+                        <h3 class="card-title">Nota Fiscal</h3>
+                        <p class="card-description">
+                            Emissão automática de notas fiscais com apenas um clique
+                            após cada atendimento
+                        </p>
+                    </article>
+
+                    <article class="benefit-card">
+                        <div class="icon-container orange-icon">
+                            <span aria-hidden="true" class="icon-class">🔔</span>
+                        </div>
+                        <h3 class="card-title">Lembretes Inteligentes</h3>
+                        <p class="card-description">
+                            Mensagens automáticas para manter seus clientes engajados e
+                            informados
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="final-cta-section" aria-labelledby="final-cta-title">
+                <div class="cta-card">
+                    <h2 id="final-cta-title" class="cta-title">Pronta para ter a Helena como sua secretária?</h2>
+                    <p class="cta-subtitle">Junte-se às profissionais que vão economizar horas por semana</p>
+                    <a href="#waitlist-form" class="cta-final-button" role="button">
+                        Entrar na Lista de Espera <span aria-hidden="true" class="arrow-icon">→</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <div id="registrationModal" class="modal-container">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">×</span>
+
+                <div id="step-1" class="form-step active">
+                    <h2 class="modal-title">Entre para a lista de espera</h2>
+                    <p class="modal-subtitle">Seja uma das primeiras a testar o LashOrganiza gratuitamente</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 33.3%;"></div>
+                    </div>
+                    <p class="step-label">Etapa 1 de 3</p>
+
+                    <form id="form-step-1">
+                        <label for="fullName">Nome Completo</label>
+                        <input type="text" id="fullName" placeholder="Seu nome completo" required>
+                        <span id="error-fullName" class="error-message"></span>
+
+                        <label for="whatsapp">Telefone / WhatsApp</label>
+                        <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required>
+                        <span id="error-whatsapp" class="error-message"></span>
+
+                        <div class="modal-actions">
+                            <button type="button" class="next-button primary-button cta-button"
+                                onclick="handleStep1Validation()">Continuar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="step-2" class="form-step">
+                    <h2 class="modal-title">Conte-nos mais sobre você</h2>
+                    <p class="modal-subtitle">Queremos entender melhor suas necessidades</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 66.6%;"></div>
+                    </div>
+                    <p class="step-label">Etapa 2 de 3</p>
+
+                    <form id="form-step-2">
+                        <p class="question-title">Qual é o seu local de trabalho?</p>
+                        <div class="radio-group" id="workplaceOptions">
+                            <label class="radio-option">
+                                <input type="radio" name="workplace" value="Home Studio"> Home Studio
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="workplace" value="Salão de Beleza"> Salão de Beleza
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="workplace" value="Espaço Compartilhado"> Espaço Compartilhado
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="workplace" value="Atendimento a Domicílio"> Atendimento a
+                                Domicílio
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="workplace" value="Outro"> Outro
+                            </label>
+                        </div>
+
+                        <div class="modal-actions">
+                            <button type="button" class="back-button" onclick="nextStep(1)">
+                                <span class="arrow-icon">←</span> Voltar
+                            </button>
+                            <button type="button" class="next-button primary-button cta-button"
+                                onclick="nextStep(3)">Continuar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="step-3" class="form-step">
+                    <h2 class="modal-title">Quase lá!</h2>
+                    <p class="modal-subtitle">Últimas perguntas para personalizar sua experiência</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <p class="step-label">Etapa 3 de 3</p>
+
+                    <form id="form-step-3">
+                        <p class="question-title">Quais ferramentas você tem mais interesse?</p>
+                        <p class="optional-text">Pode selecionar várias</p>
+                        <div class="checkbox-group" id="toolOptions">
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Registro de clientes"> Registro de clientes
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Emissão de nota fiscal"> Emissão de nota
+                                fiscal
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Geração de link de pagamento"> Geração de
+                                link de pagamento
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" name="tools" value="Mensagem automática para cliente"> Mensagem
+                                automática para cliente
+                            </label>
+                        </div>
+
+                        <p class="question-title organization-title">Você já utiliza algum tipo de organização?</p>
+                        <p class="optional-text">Opcional</p>
+                        <textarea id="currentOrganization"
+                            placeholder="Ex: planilhas do Excel, caderno, aplicativo..."></textarea>
+
+                        <p class="priority-access-note">
+                            <span class="sparkle-icon">✨</span> Você receberá acesso prioritário assim que lançarmos!
+                        </p>
+
+                        <div class="modal-actions">
+                            <button type="button" class="back-button" onclick="nextStep(2)">
+                                <span class="arrow-icon">←</span> Voltar
+                            </button>
+                            <button type="submit" class="next-button primary-button cta-button">Finalizar Cadastro</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="step-final" class="form-step final-screen">
+                    <h2 class="modal-title">🎉 Cadastro Finalizado!</h2>
+                    <p class="modal-subtitle">
+                        Obrigado por se cadastrar. Você está na frente!
+                        <br>
+                        Enviaremos seu acesso prioritário em breve.
+                    </p>
+                    <div class="final-actions">
+                        <p class="priority-access-note">
+                            Aperte o botão abaixo para testar a fase beta da helena!
+                        </p>
+                        <a id="whatsappLink" href="#" target="_blank" class="next-button primary-button whatsapp-button"
+                            role="button">
+                            Falar com a Helena no WhatsApp
+                        </a>
+                        <button type="button" class="back-button" onclick="closeModal()">Fechar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <p class="footer-text">
+                Powered by
+                <a href="https://crewofbuilders.com" target="_blank" rel="noopener noreferrer" class="crew-link">Crew of
+                    Builders</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
