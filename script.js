@@ -195,7 +195,7 @@ document.getElementById('form-step-3').addEventListener('submit', async function
 
 function generateWhatsappLink(data) {
     const phoneNumber = '5511934959032';
-    let message = `Olá Helena! Meu cadastro na lista de espera foi finalizado. 😊`;
+    let message = `Olá Helena! Meu cadastro na lista de espera foi finalizado.`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     document.getElementById('whatsappLink').href = whatsappUrl;
