@@ -1,4 +1,34 @@
+const SUPABASE_URL = 'https://yhleflimsldclfbkzqxt.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlobGVmbGltc2xkY2xmYmt6cXh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjEwNzg5MzYsImV4cCI6MjA3NjY1NDkzNn0.MCP0qWKFgzcomHGWaOgpZ97BYAPc3LU_YjxEYKtN5L0';
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
 const formData = {};
+
+async function sendToSupabase(data) {
+    const { error } = await supabaseClient
+        .from('lista_leads')
+        .insert([
+            {
+                nome_completo: data.fullName,
+                whatsapp: data.whatsapp,
+                local_trabalho: data.workplace,
+                interesses: data.tools,
+                organizacao_atual: data.organization
+            }
+        ]);
+
+    if (error) {
+        console.error('Erro ao enviar dados para o Supabase:', error);
+        return false;
+    } else {
+        console.log('Dados salvos no Supabase com sucesso!');
+        return true;
+    }
+}
 
 function closeModalOnOutsideClick(event) {
     const modalContent = document.querySelector('.modal-content');
@@ -139,35 +169,34 @@ function collectData(stepId) {
     }
 }
 
-document.getElementById('form-step-3').addEventListener('submit', function (e) {
+document.getElementById('form-step-3').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    // Chama a validação no submit
     if (!validateCurrentStep('step-3')) {
         return;
     }
 
     collectData('step-3');
-    console.log('Dados prontos para envio:', formData);
 
-    generateWhatsappLink(formData);
+    const submitButton = this.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
 
-    nextStep('final');
+    const isSuccess = await sendToSupabase(formData);
+
+    if (isSuccess) {
+        generateWhatsappLink(formData);
+        nextStep('final');
+    } else {
+        submitButton.textContent = 'Tente Novamente';
+        submitButton.disabled = false;
+    }
 });
 
 function generateWhatsappLink(data) {
-    const { fullName, whatsapp, workplace, tools, organization } = data;
-    const phoneNumber = '5511999999999';
-
-    let message = `Olá Helena! Meu cadastro na lista de espera foi finalizado. 😊\n\n`;
-    message += `*Nome*: ${fullName}\n`;
-    message += `*WhatsApp*: ${whatsapp}\n`;
-    message += `*Local de Trabalho*: ${workplace}\n`;
-    message += `*Interesse em Ferramentas*: ${tools.join(', ') || 'Nenhuma selecionada'}\n`;
-    message += `*Organização Atual*: ${organization || 'Não informado'}`;
-
+    const phoneNumber = '5511934959032';
+    let message = `Olá Helena! Meu cadastro na lista de espera foi finalizado. 😊`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
     document.getElementById('whatsappLink').href = whatsappUrl;
 }
