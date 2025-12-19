@@ -79,25 +79,19 @@ function validateCurrentStep(stepId) {
     let isValid = true;
 
     if (stepId === 'step-1') {
-        const nameInput = document.getElementById('fullName');
         const whatsappInput = document.getElementById('whatsapp');
+        // Remove tudo que não é número
+        let phoneCleaned = whatsappInput.value.replace(/\D/g, '');
 
-        displayError('fullName', '');
         displayError('whatsapp', '');
-
-        if (!nameInput.value.trim()) {
-            displayError('fullName', 'Por favor, digite seu nome completo.');
-            isValid = false;
-        }
-
-        const phoneCleaned = whatsappInput.value.replace(/\D/g, '');
-        const phoneRegex = /^\d{10,11}$/;
 
         if (!whatsappInput.value.trim()) {
             displayError('whatsapp', 'O campo WhatsApp é obrigatório.');
             isValid = false;
-        } else if (!phoneRegex.test(phoneCleaned)) {
-            displayError('whatsapp', 'Número inválido. Use 10 ou 11 dígitos (com DDD).');
+        }
+        // Valida se tem o tamanho correto (10 para fixo ou 11 para celular)
+        else if (phoneCleaned.length < 10 || phoneCleaned.length > 11) {
+            displayError('whatsapp', 'Digite o DDD + Número (10 ou 11 dígitos).');
             isValid = false;
         }
 
@@ -159,10 +153,21 @@ function nextStep(stepNumber) {
 function collectData(stepId) {
     if (stepId === 'step-1') {
         formData.fullName = document.getElementById('fullName').value;
-        formData.whatsapp = document.getElementById('whatsapp').value.replace(/\D/g, '');
-    } else if (stepId === 'step-2') {
+
+        let rawPhone = document.getElementById('whatsapp').value.replace(/\D/g, '');
+
+        if (rawPhone.length >= 12 && rawPhone.startsWith('55')) {
+            rawPhone = rawPhone.substring(2);
+        }
+
+        formData.whatsapp = '55' + rawPhone;
+
+        console.log("Número formatado para o Supabase:", formData.whatsapp);
+    }
+    else if (stepId === 'step-2') {
         formData.workplace = document.querySelector('input[name="workplace"]:checked').value;
-    } else if (stepId === 'step-3') {
+    }
+    else if (stepId === 'step-3') {
         formData.organization = document.getElementById('currentOrganization').value;
         formData.tools = Array.from(document.querySelectorAll('input[name="tools"]:checked'))
             .map(cb => cb.value);
