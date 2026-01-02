@@ -79,17 +79,28 @@ function validateCurrentStep(stepId) {
     let isValid = true;
 
     if (stepId === 'step-1') {
+        const fullNameInput = document.getElementById('fullName');
         const whatsappInput = document.getElementById('whatsapp');
-        // Remove tudo que não é número
-        let phoneCleaned = whatsappInput.value.replace(/\D/g, '');
 
+        displayError('fullName', '');
         displayError('whatsapp', '');
+
+        const nameCleaned = fullNameInput.value.trim();
+
+        if (!nameCleaned) {
+            displayError('fullName', 'O campo Nome é obrigatório.');
+            isValid = false;
+        } else if (nameCleaned.replace(/[^A-Za-zÀ-ÿ]/g, '').length < 3) {
+            displayError('fullName', 'Digite pelo menos 3 letras.');
+            isValid = false;
+        }
+
+        let phoneCleaned = whatsappInput.value.replace(/\D/g, '');
 
         if (!whatsappInput.value.trim()) {
             displayError('whatsapp', 'O campo WhatsApp é obrigatório.');
             isValid = false;
         }
-        // Valida se tem o tamanho correto (10 para fixo ou 11 para celular)
         else if (phoneCleaned.length < 10 || phoneCleaned.length > 11) {
             displayError('whatsapp', 'Digite o DDD + Número (10 ou 11 dígitos).');
             isValid = false;
@@ -115,7 +126,6 @@ function validateCurrentStep(stepId) {
         const toolsChecked = document.querySelectorAll('input[name="tools"]:checked');
         const questionTitle = document.querySelector('#form-step-3 .question-title');
 
-        // Valida que pelo menos uma ferramenta de interesse foi marcada
         if (toolsChecked.length === 0) {
             questionTitle.style.color = '#ff4d4f';
             setTimeout(() => questionTitle.style.color = 'var(--color-text-dark)', 1000);
