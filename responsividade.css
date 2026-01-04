@@ -4,6 +4,17 @@
         font-size: 56.25%;
     }
 
+    .infos-hero {
+        flex-direction: column-reverse;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .info-whatsapp-first {
+        width: 40%;
+        justify-content: center;
+    }
+
     .content-wrapper {
         padding: 4rem 2rem;
     }
