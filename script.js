@@ -17,7 +17,8 @@ async function sendToSupabase(data) {
                 whatsapp: data.whatsapp,
                 local_trabalho: data.workplace,
                 interesses: data.tools,
-                organizacao_atual: data.organization
+                organizacao_atual: data.organization,
+                origem_conhecimento: data.source
             }
         ]);
 
@@ -110,16 +111,25 @@ function validateCurrentStep(stepId) {
     }
 
     if (stepId === 'step-2') {
-        const selectedWorkplace = document.querySelector('input[name="workplace"]:checked');
-        const questionTitle = document.querySelector('#form-step-2 .question-title');
+        const workplace = document.querySelector('input[name="workplace"]:checked');
+        const source = document.querySelector('input[name="source"]:checked');
 
-        if (!selectedWorkplace) {
-            questionTitle.style.color = '#ff4d4f';
-            setTimeout(() => questionTitle.style.color = 'var(--color-text-dark)', 1000);
-            return false;
+        const titles = document.querySelectorAll('#form-step-2 .question-title');
+        let isValid = true;
+
+        if (!workplace) {
+            titles[0].style.color = '#ff4d4f';
+            setTimeout(() => titles[0].style.color = 'var(--color-text-dark)', 1000);
+            isValid = false;
         }
-        questionTitle.style.color = 'var(--color-text-dark)';
-        return true;
+
+        if (!source) {
+            titles[1].style.color = '#ff4d4f';
+            setTimeout(() => titles[1].style.color = 'var(--color-text-dark)', 1000);
+            isValid = false;
+        }
+
+        return isValid;
     }
 
     if (stepId === 'step-3') {
@@ -176,6 +186,9 @@ function collectData(stepId) {
     }
     else if (stepId === 'step-2') {
         formData.workplace = document.querySelector('input[name="workplace"]:checked').value;
+        formData.source = Array.from(
+            document.querySelectorAll('input[name="source"]:checked')
+        ).map(cb => cb.value);
     }
     else if (stepId === 'step-3') {
         formData.organization = document.getElementById('currentOrganization').value;
